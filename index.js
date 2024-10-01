@@ -63,7 +63,7 @@ const order = require("./routes/orderRoutes.js");
 const admin = require("./routes/adminRoutes.js");
 const wishlistRoutes = require("./routes/wishlistRoutes.js");
 const { authorizeRoles } = require("./middlewares/auth.js");
-const contributor = require(".\routes\contributors.js");
+const contributor = require(".\routes\contributorsRoutes.js");
 
 app.use("/customer", customer);
 app.use("/api/product", productRoutes);
@@ -72,7 +72,7 @@ app.use("/order", order);
 
 app.use("/admin", authorizeRoles, admin);
 
-app.use("/contributors", contributor);
+app.use("/contributor", contributor);
 
 
 app.use("/api/wishlist", wishlistRoutes);
