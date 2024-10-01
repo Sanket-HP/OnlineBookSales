@@ -63,6 +63,7 @@ const order = require("./routes/orderRoutes.js");
 const admin = require("./routes/adminRoutes.js");
 const wishlistRoutes = require("./routes/wishlistRoutes.js");
 const { authorizeRoles } = require("./middlewares/auth.js");
+const contributor = require(".\routes\contributors.js");
 
 app.use("/customer", customer);
 app.use("/api/product", productRoutes);
@@ -70,6 +71,8 @@ app.use("/order", order);
 
 
 app.use("/admin", authorizeRoles, admin);
+
+app.use("/contributors", contributor);
 
 
 app.use("/api/wishlist", wishlistRoutes);
@@ -89,3 +92,4 @@ app.use("/api/cart", cartRoutes);
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
